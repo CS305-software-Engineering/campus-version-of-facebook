@@ -30,7 +30,7 @@ def invalid_mail(form,field):
 def joining_yr_validation(form,field):
     mail_id_entered = form.mail_id.data
     join_yr = field.data
-    if join_yr!= mail_id_entered[:4]:
+    if str(join_yr) != mail_id_entered[:4]:
         raise ValidationError("not a valid year")
 
 def invalid_password(form,field):
