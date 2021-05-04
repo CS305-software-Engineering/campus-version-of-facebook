@@ -111,7 +111,7 @@ def reset_password_request():
             print("user found")
             send_password_reset_email(user) #if user is found, invoke send_password function defined in models corr to the user mail
         #flash('Check your email for the instructions to reset your password')
-         flash('Reset password link has been sent to your email account.')
+            flash('Reset password link has been sent to your email account.')
         return redirect(url_for('login'))   #redirect to login page
     return render_template('reset_password_request.html',
                            title='Reset Password', form=form)
