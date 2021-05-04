@@ -158,49 +158,49 @@ def home():
     upcoming = mycursor.fetchall()
     if len(upcoming)>4:
         upcoming=upcoming[:4]
-    mycursor.execute("select post_id from post_like where user_id = '{0}'".format(str(current_user.id)))
-    posts = mycursor.fetchall()
-    all_fav_tags = []
-    print(posts)
-    for i in posts:
-        print(i[0])
-        mycursor.execute("select tag1,tag2,tag3 from post where id = {0}".format(i[0]))
-        tags = mycursor.fetchall()
-        print(tags)
-        if tags:
-            for x in tags[0]:
-                if x:
-                    all_fav_tags.append(x)
+#     mycursor.execute("select post_id from post_like where user_id = '{0}'".format(str(current_user.id)))
+#     posts = mycursor.fetchall()
+#     all_fav_tags = []
+#     print(posts)
+#     for i in posts:
+#         print(i[0])
+#         mycursor.execute("select tag1,tag2,tag3 from post where id = {0}".format(i[0]))
+#         tags = mycursor.fetchall()
+#         print(tags)
+#         if tags:
+#             for x in tags[0]:
+#                 if x:
+#                     all_fav_tags.append(x)
 
-    print(all_fav_tags)
-    liked = max(set(all_fav_tags), key=all_fav_tags.count)
-    print(liked)
-    mycursor.execute("select tag from eventags")
-    all_tags = mycursor.fetchall()
-    similarity = []
-    all_tags = list(all_tags)
+#     print(all_fav_tags)
+#     liked = max(set(all_fav_tags), key=all_fav_tags.count)
+#     print(liked)
+#     mycursor.execute("select tag from eventags")
+#     all_tags = mycursor.fetchall()
+#     similarity = []
+#     all_tags = list(all_tags)
 
-    def similarity_cmp(a, b):
-        a = a[0]
-        b = b[0]
-        print(type(liked))
-        if (wordsim(liked, a) < wordsim(liked, b)):
-            return -1
-        else:
-            return 1
+#     def similarity_cmp(a, b):
+#         a = a[0]
+#         b = b[0]
+#         print(type(liked))
+#         if (wordsim(liked, a) < wordsim(liked, b)):
+#             return -1
+#         else:
+#             return 1
 
-    similarity_cmp_key = cmp_to_key(similarity_cmp)
-    all_tags.sort(key=similarity_cmp_key)
-    recommended_tags = all_tags[0:4]
-    print(recommended_tags)
-    recommended_events = []
-    for tag in recommended_tags:
-        mycursor.execute("select * from events where tag = '{0}'".format(str(tag[0])))
-        recommended_events += mycursor.fetchall()
+#     similarity_cmp_key = cmp_to_key(similarity_cmp)
+#     all_tags.sort(key=similarity_cmp_key)
+#     recommended_tags = all_tags[0:4]
+#     print(recommended_tags)
+#     recommended_events = []
+#     for tag in recommended_tags:
+#         mycursor.execute("select * from events where tag = '{0}'".format(str(tag[0])))
+#         recommended_events += mycursor.fetchall()
 
-    #print(recommended_events)
-    if len(recommended_events)>4:
-        recommended_events=recommended_events[:4]
+#     #print(recommended_events)
+#     if len(recommended_events)>4:
+#         recommended_events=recommended_events[:4]
 
     return render_template('home.html', form=hform,trending=trending,upcoming=upcoming)   # rendering home page passing form and trending events data
 
