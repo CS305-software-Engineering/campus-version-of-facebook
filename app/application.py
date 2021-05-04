@@ -370,17 +370,17 @@ def addevent():
             newtag = eventags(t = eform.tag.data, c=x)     #inserting this tag in evnetags data table with count 0
             db.session.add(newtag)
             db.session.commit()
-#             for x in value:
-#                 similarity = wordsim(x,eform.tag.data)
-#                 print(type(similarity))
-#                 list_sim = similarity.tolist()
-#                 print(type(list_sim))
-#                 newpair = sim(w1 = x, w2 = eform.tag.data,s = list_sim)
-#                 db.session.add(newpair)
-#                 db.session.commit()
-#                 newpair1 = sim(w2=x, w1=eform.tag.data, s=list_sim)
-#                 db.session.add(newpair1)
-#                 db.session.commit()
+            for x in value:
+                similarity = wordsim(x,eform.tag.data)
+                print(type(similarity))
+                list_sim = similarity.tolist()
+                print(type(list_sim))
+                newpair = sim(w1 = x, w2 = eform.tag.data,s = list_sim)
+                db.session.add(newpair)
+                db.session.commit()
+                newpair1 = sim(w2=x, w1=eform.tag.data, s=list_sim)
+                db.session.add(newpair1)
+                db.session.commit()
 
         newevents = events(t=eform.title.data, d=eform.description.data, v=eform.venue.data, tag=eform.tag.data,
                            sd=eform.sdate.data,
