@@ -1,7 +1,7 @@
 from app import app ##for initiating the app
 from app.forms import * ## to get all the forms and validators in them
 from app.models import * ## all the tables present in database 
-from flask import render_template, url_for, redirect,request, jsonify ## components of flask to connect to frontend
+from flask import render_template, url_for, redirect,request, jsonify,flash ## components of flask to connect to frontend
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user ## modules for logging in a user
 from sqlalchemy import create_engine ## connecting to database
 from flask_mail import Mail, Message  ## to send mails in forgot password
@@ -111,6 +111,7 @@ def reset_password_request():
             print("user found")
             send_password_reset_email(user) #if user is found, invoke send_password function defined in models corr to the user mail
         #flash('Check your email for the instructions to reset your password')
+         flash('Reset password link has been sent to your email account.')
         return redirect(url_for('login'))   #redirect to login page
     return render_template('reset_password_request.html',
                            title='Reset Password', form=form)
@@ -136,7 +137,7 @@ def reset_password(token):
         mycursor.execute("UPDATE credentials SET password = '{password}' WHERE mail_id = '{mail}' ".format(password = str(user.password), mail =  str(idRec)))
         connection.commit()
         print("heyy after reset password in database", user.password)
-        #flash('Your password has been reset.')
+        flash('Your password has been reset.')
         return redirect(url_for('login'))   #finally redirect to login page
     return render_template('reset_password.html', form=form)     #rendering corresponding template with password reset form
 
