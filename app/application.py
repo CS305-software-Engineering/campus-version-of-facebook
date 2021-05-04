@@ -95,7 +95,6 @@ def login():
                 return redirect(url_for('login')) # redirect to login after successful registration
             else:
                 flash('Unsuccessful registration. Please try again.')
-                return redirect(url_for('login')) # redirect to login after successful registration
     return render_template("login.html", form1 = login_form, form = reg_form) # if the method is post then return the login form
 
 #reset password route, to retreive the mail id and send mail to the same
@@ -215,7 +214,7 @@ def home():
 
             print(recommended_events)
 
-    return render_template('home.html', form=hform,trending=trending,upcoming=upcoming)   # rendering home page passing form and trending events data
+    return render_template('home.html', form=hform,trending=trending,upcoming=recommended_events)   # rendering home page passing form and trending events data
 
 
 # it is routed to homeSearch by ajax present in Home.html
