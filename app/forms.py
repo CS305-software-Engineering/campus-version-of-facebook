@@ -79,7 +79,7 @@ class ResetPasswordForm(FlaskForm):
     password = PasswordField('Password',validators=[InputRequired(message = "Password mismatch"),invalid_password])
     password2 = PasswordField(
         'Repeat Password', validators=[DataRequired(), EqualTo('password')])   #confirming the password2 and checking for match using EqualTo() validator
-     submit = SubmitField('Submit')  #submit button field in the form
+    submit = SubmitField('Submit')  #submit button field in the form
 
 #form is to search tag in the home page    
 class HomeForm(FlaskForm):
