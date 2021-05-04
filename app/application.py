@@ -340,9 +340,13 @@ def report_action(post_id, action):
         reports = [x[0] for x in reports] ## getting users
         no_of_reports = len(reports) ##counting number of users who reported the post
         print(no_of_reports) 
-        if no_of_reports>1 : ## if no of reports crosses a threshold value
-            mycursor.execute("delete from postss where id = {0}".format(post_id)) ## delete the post if no of reports crosses a threshold value
-            connection.commit() ## commit the changes to database 
+        if no_of_reports>1 :
+            if post_id<300:
+                mycursor.execute("delete from postss where id = {0}".format(post_id))
+                connection.commit()
+            else:
+                mycursor.execute("delete from post where id = {0}".format(post_id))
+                connection.commit()
     if action == 'unreport': ## if a report on post is  taken back
         current_user.unreport_post(post_id) ## call unreport_post in models to delete the post in post_report table
 
