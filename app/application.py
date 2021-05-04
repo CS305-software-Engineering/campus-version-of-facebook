@@ -52,7 +52,7 @@ def wordsim(w1,w2):
     nlp = en_core_web_sm.load()
    # print("Enter two space-separated words")
    # words = input()
-    words = w1 + w2
+    words = w1 +  " " + w2
     tokens = nlp(words)
 
     for token in tokens:
