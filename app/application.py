@@ -93,6 +93,9 @@ def login():
                 db.session.commit()
                 flash('You were successfully registered')
                 return redirect(url_for('login')) # redirect to login after successful registration
+            else:
+                flash('Unsuccessful registration. Please try again.')
+                return redirect(url_for('login')) # redirect to login after successful registration
     return render_template("login.html", form1 = login_form, form = reg_form) # if the method is post then return the login form
 
 #reset password route, to retreive the mail id and send mail to the same
