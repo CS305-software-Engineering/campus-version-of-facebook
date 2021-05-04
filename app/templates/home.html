@@ -157,21 +157,20 @@ Below the four cards , all posts are displayed with  their details.
                         <h1 class="mt-4">Recommendations</h1>
                         
                         <div class="row">
-                            {% for up in upcoming %}
-                              <div class="col-xl-3 col-md-6">
-                                <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-                                    <div class="card-body">{{up[2]}}</div>
+                                       <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">{{upcoming[0][2]}}</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
                                         <details open>
                                               <summary>View Event Details</summary>
-                                              <p>{{up[3]}}</p>
+                                              <p>{{upcoming[0][3]}}</p>
                                               <p>
                                                   <i class="fas fa-map-marker-alt"></i>
-                                                  {{up[4]}}
+                                                  {{upcoming[0][4]}}
                                               </p>
                                               <p>
                                               <i class="fa fa-calendar"></i>
-                                                  {{up[5]}}
+                                                  {{upcoming[0][5]}}
                                               </p>
                                                <p>
                                                   <i class="fa fa-clock-o"></i>
@@ -181,7 +180,75 @@ Below the four cards , all posts are displayed with  their details.
                                     </div>
                                 </div>
                             </div>
-                            {% endfor %}
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">{{upcoming[1][2]}}</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <details open>
+                                              <summary>View Event Details</summary>
+                                                <p>{{upcoming[1][3]}}</p>
+                                              <p>
+                                                  <i class="fas fa-map-marker-alt"></i>
+                                                  {{upcoming[1][4]}}
+                                              </p>
+                                              <p>
+                                              <i class="fa fa-calendar"></i>
+                                                  {{upcoming[1][5]}}
+                                              </p>
+                                               <p>
+                                                  <i class="fa fa-clock-o"></i>
+                                                  {{upcoming[1][6]}}
+                                              </p>
+                                        </details>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">{{upcoming[2][2]}}</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <details open>
+                                              <summary>View Event Details</summary>
+                                                <p>{{upcoming[2][3]}}</p>
+                                              <p>
+                                                  <i class="fas fa-map-marker-alt"></i>
+                                                  {{upcoming[2][4]}}
+                                              </p>
+                                              <p>
+                                              <i class="fa fa-calendar"></i>
+                                                  {{upcoming[2][5]}}
+                                              </p>
+                                               <p>
+                                                  <i class="fa fa-clock-o"></i>
+                                                  {{upcoming[2][6]}}
+                                              </p>
+                                        </details>
+                                    </div>
+                                </div>
+                            </div>   
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">{{upcoming[3][2]}}</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <details open>
+                                              <summary>View Event Details</summary>
+                                                <p>{{upcoming[3][3]}}</p>
+                                              <p>
+                                                  <i class="fas fa-map-marker-alt"></i>
+                                                  {{upcoming[3][4]}}
+                                              </p>
+                                              <p>
+                                              <i class="fa fa-calendar"></i>
+                                                  {{upcoming[3][5]}}
+                                              </p>
+                                               <p>
+                                                  <i class="fa fa-clock-o"></i>
+                                                  {{upcoming[3][6]}}
+                                              </p>
+                                        </details>
+                                    </div>
+                                </div>
+                            </div>   
                             </div>
                               <div id="output">
                               </div>
