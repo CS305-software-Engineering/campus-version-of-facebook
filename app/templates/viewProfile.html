@@ -41,23 +41,29 @@
 .topnav-right {
   float: right;
 }
+
     </style>
     <link href="{{ url_for('static',filename='styles/home_style.css') }}" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 </head>
 <body>
-<div>
+<div class="card" style="margin-left: 400px;width: 400px;margin-bottom: 15px;">
+      <div class="container" style="font-style: italic;">
          <h2>{{pdata[2]}}</h2>
          <p>Year : {{pdata[3]}}</p>
          <p>Department : {{pdata[4]}}</p>
          <p>Degree : {{pdata[5]}}</p>
         <p>ID : {{pdata[1]}}</p>
+      </div>
 </div>
 <div>
+  <div>
+
+  </div>
     {% if data %}
       {% for d in data%}
-                            <div class="card" style="margin-left: 200px; width:580px " >
+                            <div class="card" style="margin-left: 400px; width: 580px;" >
                                 <!-- <div class="post1"> -->
                                     <img src="{{url_for('static', filename = 'assets/image1.jpeg')}}" alt="image is here"
                                         style=" border-radius: 50%; height: 60px ; width: 60px; padding:10px 10px ;"/><br>
