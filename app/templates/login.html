@@ -78,14 +78,18 @@
 				{{form.mail_id(placeholder = 'Email', type='text')}}
 				<ul>
                 {% for error in form.mail_id.errors %}
+                    <span style="color:red;">					
                 <li>{{error}}</li>
+		 </span>			    
                 {% endfor %}
             </ul>
 
 				{{form.year(placeholder = 'Joining year', type='number')}}
                                 <ul>
                 {% for error in form.year.errors %}
+		 <span style="color:red;">				
                 <li>{{error}}</li>
+		 </span>  		 
                 {% endfor %}
             </ul>
 
@@ -96,14 +100,18 @@
 				{{form.password(placeholder = 'Password', type='password')}}
 				<ul>
                 {% for error in form.password.errors %}
+                       <span style="color:red;">					
                 <li>{{error}}</li>
+			 </span>       
                 {% endfor %}
             </ul>
 
 				{{form.confirm_password(placeholder = 'Confirm password', type='password')}}
 				<ul>
                 {% for error in form.confirm_password.errors %}
+			  <span style="color:red;">		
                 <li>{{error}}</li>
+			 </span>  	  
                 {% endfor %}
             	</ul>
 				<input type="submit" name = "action" value="Register">
