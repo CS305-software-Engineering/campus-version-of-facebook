@@ -49,24 +49,9 @@ with its title pertaining to the event's date -->
                   var date = new Date().toISOString().slice(0,10); // extract date from date and time output
                    $('#sdate').attr('min', date);      // disabling the days that have passed
                    $('#edate').attr('min', date);     // disabling the days that have passed     
- 
-                  let textarea = document.querySelector(".resize-ta");
-                    textarea.addEventListener("keyup", () => {
-                      textarea.style.height = calcHeight(textarea.value) + "px";
-                    }); 
               });
            });
         </script>
-        <style>
-            .textarea {
-                      display: block;
-                      width: 100%;
-                      overflow: hidden;
-                      resize: both;
-                      min-height: 40px;
-                      line-height: 20px;		         
-		      }
-	    </style>
         
 
     </head>
@@ -170,7 +155,7 @@ with its title pertaining to the event's date -->
                                         <div class="form-group">
 <!--                                            <input type="text" class="form-control" placeholder="Last Name *" value="" />-->
                                                       {{form.description.label}}
-                                                      {{form.description(class="textarea resize-ta", role="textbox")}}
+                                                      {{form.description}}
                                         </div>
                                         <div class="form-group">
 <!--                                            <input type="password" class="form-control" placeholder="Password *" value="" />-->
@@ -180,36 +165,48 @@ with its title pertaining to the event's date -->
                                         <div class="form-group">
 <!--                                            <input type="password" class="form-control"  placeholder="Confirm Password *" value="" />-->
 <!--                                                {{form.hidden_tag()}}-->
-                                                  {{form.sdate.label}}
-                                                   {{form.sdate(type="date", placeholder="Select Date")}}
+                                                    {{form.color.label}}
+                                                    {{form.color}}
+
+                                                  <!-- {{form.sdate.label}}
+                                                   {{form.sdate(type="date", placeholder="Select Date")}} -->
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group ">
 <!--                                            <input type="email" class="form-control" placeholder="Your Email *" value="" />-->
+
                                              {{form.hidden_tag()}}
                                               {{form.stime.label}}
                                                {{form.stime(type="time", placeholder="Select Time", id="myTime")}}
                                         </div>
                                         <div class="form-group">
 <!--                                            <input type="text" minlength="10" maxlength="10" name="txtEmpPhone" class="form-control" placeholder="Your Phone *" value="" />-->
-                                            {{form.hidden_tag()}}
+                                    {{form.hidden_tag()}}
+                                    {{form.etime.label}}
+                                    {{form.etime(type="time", placeholder="Select Time", id="myTime")}}
+                                            <!-- {{form.hidden_tag()}}
                                            {{form.edate.label}}
-                                           {{form.edate(type="date", placeholder="Select Date")}}
+                                           {{form.edate(type="date", placeholder="Select Date")}} -->
                                         </div>
+                                        
+                                        <div class="form-group">
+                                            
+                                            
+                                            {{form.sdate.label}}
+                                            {{form.sdate(type="date", placeholder="Select Date")}}
+                                        </div>
+
                                          <div class="form-group">
                                              {{form.hidden_tag()}}
-                                               {{form.etime.label}}
-                                               {{form.etime(type="time", placeholder="Select Time", id="myTime")}}
+                                           {{form.edate.label}}
+                                           {{form.edate(type="date", placeholder="Select Date")}}
                                          </div>
                                          <div class="form-group">
                                              {{form.tag.label}}
                                               {{form.tag}}
                                          </div>
-                                         <div class="form-group">
-                                             {{form.color.label}}
-                                            {{form.color}}
-                                         </div>
+                                         
 
 
                                         <input type="submit" class="btnRegister"  value="Submit"/>
