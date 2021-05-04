@@ -175,14 +175,3 @@ class eventags(db.Model):
         self.tag= t
         self.count= c
         
-# storing similarity between tags
-class sim(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    word_1 = db.Column(db.String(50), nullable=False)
-    word_2 = db.Column(db.String(50), nullable=False)
-    similarity = db.Column(db.Float, nullable = False)
-
-    def __init__(self,w1,w2,s):
-        self.word_1= w1
-        self.word_2= w2
-        self.similarity=s
