@@ -45,16 +45,16 @@ $(document).ready(function() {
      center:'title',                            // month title
      right:'month,agendaWeek,agendaDay'         // to view calendar in monthly format,weekly format ,day format 
     },
-    eventRender: function(eventObj, $el) {     // this function is for hovering event details
-        $el.popover({                          
-          title: eventObj.title,               // heading - event title
-          trigger: 'hover',                        
-          placement: 'top',                   // hover placement
-          container: 'body',                         
-           content:  "Description : " + eventObj.description // content/body is event description
+ //   eventRender: function(eventObj, $el) {     // this function is for hovering event details
+ //       $el.popover({                          
+ //         title: eventObj.title,               // heading - event title
+ //         trigger: 'hover',                        
+  //        placement: 'top',                   // hover placement
+   //       container: 'body',                         
+    //       content:  "Description : " + eventObj.description // content/body is event description
 
-        });
-      },
+      //  });
+   //   },
     eventTextColor : 'white',                           // text colour of event in calendar
      //event details  
     events : [{% for row in data %}{ id : '{{row[0]}}', title : '{{row[2]}}',description:'{{row[3]}}',venue:'{{row[4]}}',tag:'{{row[7]}}' ,start : '{{row[5]}}', end : '{{row[6]}}',backgroundColor:'{{row[10]}}',borderColor:'{{row[10]}}',},{% endfor %}],
